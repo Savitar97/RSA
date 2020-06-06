@@ -2,7 +2,11 @@ import java.math.BigInteger;
 import java.security.SecureRandom;
 
 public class MillerRabin {
-
+    /**
+     * Return true if the argument is a prime.
+     * @param n
+     * @return negate isComposite
+     */
     public boolean miller(BigInteger n){
         boolean isComposite=true;
         if (n.compareTo(BigInteger.ONE) == 0) {
@@ -38,7 +42,7 @@ public class MillerRabin {
                 }
             }
         }
-        return isComposite;
+        return !isComposite;
 
     }
 
@@ -56,8 +60,8 @@ public class MillerRabin {
         MillerRabin mr=new MillerRabin();
         boolean res=mr.miller(new BigInteger("17"));
         System.out.println(res);
-        BigInteger i=new BigInteger("12");
-        System.out.println(i.isProbablePrime(rand.nextInt()));
+        BigInteger i=new BigInteger("17");
+        System.out.println(i.isProbablePrime(1));
 
     }
 }
