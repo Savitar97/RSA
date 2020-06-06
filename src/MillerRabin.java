@@ -26,20 +26,19 @@ public class MillerRabin {
             BigInteger a=uniformRandom(BigInteger.TWO,n.subtract(BigInteger.ONE));
             System.out.println("A értéke:"+a);
             System.out.println(FME.modPow(a,d,n));
-            if (FME.modPow(a,d,n).equals(BigInteger.ONE)||FME.modPow(a,d,n).equals(BigInteger.ONE.negate())){
+            if (FME.modPow(a,d,n).equals(BigInteger.ONE)||FME.modPow(a,d,n).equals(n.subtract(BigInteger.ONE))){
                  isComposite=false;
             }
             else {
                 for (int r = 0; r < s; r++) {
                     System.out.println(d.multiply(BigInteger.TWO.pow(r)));
-                    if (FME.modPow(a, d.multiply(BigInteger.TWO.pow(r)), n).equals(BigInteger.ONE.negate())) {
+                    if (FME.modPow(a, d.multiply(BigInteger.TWO.pow(r)), n).equals(n.subtract(BigInteger.ONE))) {
                         isComposite=false;
                     }
-                    ;
                 }
             }
         }
-        return !isComposite;
+        return isComposite;
 
     }
 

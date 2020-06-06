@@ -16,5 +16,4 @@ public class FME {
             return (base.multiply(modPow(base,exp.subtract(BigInteger.ONE),n))).remainder(n);
         }
     }
-
 }

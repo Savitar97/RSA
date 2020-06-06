@@ -23,10 +23,10 @@ public class Rsa {
     public void keyGen(){
         do {
             q=new BigInteger(100,rand);
-        }while (!mr.miller(q));
+        }while (mr.miller(q));
         do {
             p=new BigInteger(100,rand);
-        }while (!mr.miller(p));
+        }while (mr.miller(p));
         n=p.multiply(q);
         fin= (p.subtract(new BigInteger("1"))).multiply(q.subtract(new BigInteger("1")));
         System.out.println(fin);
